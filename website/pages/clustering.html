@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Personal Portfolio Website</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+    rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/mediumish.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="sidebar">
+    <header>Clustering</header>
+    <ul>
+      <li><a href="../index.html">Introduction</a></li>
+      <li><a href="data_gathering.html">Data Gathering</a></li>
+      <li><a href="data_cleaning.html">Data Cleaning</a></li>
+      <li><a href="exploring_data.html">Exploring Data</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="#">Clustering</a></li>
+      <li><a href="infographics.html">Infographics</a></li>
+      <li><a href="conclusion.html">Conclusion</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+    </ul>
+  </div>
+  <!-- Begin Post -->
+  <div class="post">
+    <div class="mainheading">
+    </div>
+    <div class="article-post">
+      <h2>News IO</h2>
+      <p>To understand how the focus of financial news shifted since 2019, it is necessary
+        to know which topics are covered the most each day, so the trend can be analyzed. There are many ways to
+        vectorize text.
+        This project chooses to use tf-idf score. Below are the TF-IDF vectors after the “Data Cleaning” step,
+        which includes removing stop words and punctuations,
+        replacing special characters, and lemmatizing, etc.</p>
+      <img class="featured-image img-fluid" src="../assets/clustering/raw_text_data.png" alt="" width="70%"
+        height="50%">
+      <figcaption style="text-align: center;">Figure1: Raw News Data</figcaption>
+      <h5>Dimensionality Reduction</h5>
+      <p>The original data vectors have over 10K dimentions and 6K instances. In order to avoid the expensive
+        computation from sparsity,
+        this project cuts down the vector dimension to 300 using TruncatedSVD method.</p>
+      <h5>DBScan</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/db_cluster.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure2: DBscan Clusters</figcaption>
+      <p>A naive DBScan method is not very ideal. The top two clusters with the most weight have ambiguous and mixed
+        information.
+      </p>
+      <h5>Hierarchical Clustering</h5>
+      <img class="featured-image img-fluid" style="display: inline-block;"
+        src="../assets/clustering/hierarchical_cluster.png" width="45%" height="50%">
+      <img class="featured-image img-fluid" style="display: inline-block;" src="../assets/clustering/agg_clusters.png"
+        width="45%" height="50%">
+      <figcaption style="text-align: center;">Figure3: Hierarchical Clustering Chart and Clusters</figcaption>
+      <p>The dendrogram shows that the data can be clustered into 11 groups with a split at 6. The result has a clearer
+        message
+        on clusters with "protest" and "law" topics than DBScan. Hierarchical clustering provides an overview of the
+        topics.
+        Cluster #0 seems to be the "other" category, which contains a mix of uncategorized news, and it needs to be
+        broken down further. #0 cluster contains some important keywords like "china", "company", and "coronavirus".
+      </p>
+      <h5>Silhouette Analysis</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/silhouette.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure4: Silhouette Analysis</figcaption>
+      <p>From the Silhouette analysis, 4, 9, 28 number of clusters generate the highest silhouete scores. Below section
+        will compare the results from K-means clustering with these three parameters.
+      </p>
+      <h5>K-Means Clustering Results</h5>
+      <p>While K-means is an efficient clustering method, choosing an optimal K is important to control performance and
+        granularity of the result.
+        Since the goal is to identify major news events, plotting the most important clusters against a
+        timeline and validating them with actual events is a way to measure cluster's capability of capturing
+        information,
+        and thus help determine the best value of K. To help understand the semantic meaning of each cluster, each
+        cluster
+        result also comes with a "Top 10 Words" table based on their tfidf scores.
+      </p>
+      <h5>4 Clusters</h5>
+      <img class="featured-image img-fluid" style="display: inline-block;" src="../assets/clustering/4_clusters.png"
+        alt="" width="45%" height="50%">
+      <img class="featured-image img-fluid" style="display: inline-block;"
+        src="../assets/clustering/4_clusters_desp.png" alt="" width="45%" height="50%">
+      <figcaption style="text-align: center;">Figure5: 4 Cluster Timeline and Clusters</figcaption>
+      <p>Two distinctive events can be observed from the chart. They are the beginning of the protest and a series of
+        new financial activities.
+        The other two clusters should not be considered as events, since they are composed of mixed topics and span
+        across the whole timeline.
+        The four cluster baseline solution gives enough information to state that Hong Kong news media has shifted their
+        focus away from the
+        protest and turned into new financial activities. However, to understand the timeline and the topics of
+        other high volume peaks, a higher granularity clustering solution is needed.
+      </p>
+      <h5>9 Clusters</h5>
+      <img class="featured-image img-fluid" style="display: inline-block;" src="../assets/clustering/9_clusters.png"
+        alt="" width="45%" height="50%">
+      <img class="featured-image img-fluid" style="display: inline-block;"
+        src="../assets/clustering/9_clusters_desp.png" alt="" width="45%" height="50%">
+      <figcaption style="text-align: center;">Figure6: 9 Cluster Timeline and Clusters</figcaption>
+      <p>9 clusters capture two more major events, which are "stock market tumbling" and "introduction of the National
+        Security Law".
+        This clustering draws a clearer holistic view since it identifies the two highest volume peaks in the chart.
+        However, the #4 cluster still contains ambiguous information, and it includes keywords
+        like "coronavirus", "protest" that represents totally different events.
+        This clustering solution also shows that by adding more clusters, more events can be identified from the "Other"
+        cluster, #4 in this case.
+        It's a very convenient property. It means that if increasing the number of clusters, the #0 cluster can be
+        broken down further.
+      </p>
+      <h5>28 Clusters</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/28_clusters.png" alt="" width="80%" height="50%">
+      <figcaption style="text-align: center;">Figure7: 28 Clusters Timeline</figcaption>
+      <img class="featured-image img-fluid float-left" src="../assets/clustering/28_clusters_desp.png" alt=""
+        width="50%" height="50%">
+      <br>
+      <p>As expected, coronavirus is separated from the "Other" cluster. More interesting events also
+        start to show up in the chart. Twenty-eight cluster solution shows a much better event timeline than four and
+        nine cluster
+        solutions. Twenty-eight is also the optimal number from silhouette analysis. Even though big clusters like #17
+        and #20 haven't been broken down into smaller sizes,
+        the general topics about "protests" and "new financial activities" are well captured. And because of the nature
+        of news in general,
+        there will always be a group of uncategorizable articles. An interactive chart is embedded below.
+      </p>
+      <object type="text/html" data="../assets/clustering/28_clusters.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure8: 28 Clusters Timeline Chart and Clusters</figcaption>
+      <br>
+      <h5>Summary</h5>
+      <p>The optimal number of clusters 28 is obtained from Silhouette analysis. Out of need of
+        understanding news media focus during the two years, the K-means method clusters the major topics
+        from news in chronological order, and shows promising results. Naive DBScan and hierarchical method may perform
+        better if more parameter tuning is applied.</p>
+      <h6>Data can be found in the Data Cleaning section.</h6>
+      <h6>NewsIO clustering code is stored <a href="../assets/clustering/Python Clustering.html" target="_">here.</a>
+      </h6>
+      <br>
+      <h2>HSI Stock Return</h2>
+      <p>The Hang Seng Index(HSI) is composed of the largest companies of the Hong Kong stock market
+        and is the main indicator of the overall financial market performance. To study the protest effect on the
+        financial market,
+        HSI and its component stocks are good targets. Features like mean return and variance during the protest
+        can be used in clustering to understand how different stocks react to the event.</p>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_data.png" alt="" width="70%" height="50%">
+      <figcaption style="text-align: center;">Figure9: Stock Return Data</figcaption>
+      <h5>Hierarchical Clustering</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_hierarchy.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure10: Hierarchical Clustering Chart</figcaption>
+      <p>Hierarchical clustering with Euclidean distance gives four clusters with a split at 3. However, the following
+        four cluster solution
+        does not give a decent result, maybe due to that stock returns do not have a strong hierarchical relationship.
+      </p>
+      <h5>Silhouette Analysis</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_silhouette.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure11: R Silhouette Chart</figcaption>
+      <p>The silhouette method shows that the optimal number of clusters is two. The following K-means method will
+        experiment with
+        K values of 2, 3, and 4.
+      </p>
+      <h5>K-Means Clustering Results</h5>
+      <br>
+      <h5>Two Clusters</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_cluster2.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure12: 2 Cluster</figcaption>
+      <h5>Three Clusters</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_cluster3.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure13: 3 Cluster</figcaption>
+      <h5>Four Clusters</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_cluster4.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure14: 4 Clusters</figcaption>
+      <p>Three seems to be the optimal number of clusters. The two and four cluster solutions are descent, but have
+        overlapping
+        areas, meaning that they do not differentiate the stocks well. This cluster result does not match with the
+        original
+        sub-industry label. The following will discuss the interpretation from the three cluster.
+      </p>
+      <h5>Intrepretation from the 3-Cluster Solution</h5>
+      <img class="featured-image img-fluid float-left" src="../assets/clustering/r_28cluster_stats.png" alt=""
+        width="50%" height="50%">
+      <p>The result of the clustering shows three groups of stocks, with size 32, 7, 11 respectively. As shown from the
+        table
+        on the left, cluster #2 has stonger return in 2019 H1 than the other two clusters, while cluster #3 has stronger
+        return in 2020 Summer. It clusters the data nicely by their performance in different periods.
+        Because of the social unrests, it is normal to see stocks tumbling during 2019 H2 and 2020 Summer. Thus, this
+        appears interesting
+        that cluster #2 and #3 performed well.</p>
+      <h5>Distance Matrices</h5>
+      <br>
+      <h5>Euclidean</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/euclidean_dist.png" alt="" width="50%"
+        height="50%">
+      <h5>Manhattan</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/manhattan_dist.png" alt="" width="50%"
+        height="50%">
+      <h5>Cosine Similarity</h5>
+      <img class="featured-image img-fluid" src="../assets/clustering/cosine_dist.png" alt="" width="50%" height="50%">
+      <p>Avoid showing the 50 * 50 size distance matrices, each matrix is taken a fractional snippet of size 5 * 5.</p>
+      <h5>Clustering Prediction</h5>
+      <p>They are three new stock data, and will be clustered using above three cluster solution.</p>
+      <img class="featured-image img-fluid" src="../assets/clustering/r_newdata.png" alt="" width="50%" height="50%">
+      <img class="featured-image img-fluid" src="../assets/clustering/r_newcluster.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure15: New Cluster Prediction</figcaption>
+      <p>The three new data vectors are categorized into the red cluster, which is the most common group.</p>
+      <h5>Summary</h5>
+      <p>The three cluster K-Means solution provides clean-cut groups, while the hierarchical approach does not work
+        well.
+        Further stock analysis is needed to seek properties of the stocks from cluster 2 and 3.
+      </p>
+      <h6>Data can be found in the Data Cleaning section.</h6>
+      <h6>Stock clustering code is stored <a href="../assets/clustering/R Clustering.html" target="_">here.</a></h6>
+      <br>
+    </div>
+  </div>
+  <!-- End Post -->
+</body>
+
+</html>

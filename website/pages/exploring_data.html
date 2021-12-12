@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Personal Portfolio Website</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+    rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/mediumish.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="sidebar">
+    <header>Exploring Data</header>
+    <ul>
+      <li><a href="../index.html">Introduction</a></li>
+      <li><a href="data_gathering.html">Data Gathering</a></li>
+      <li><a href="data_cleaning.html">Data Cleaning</a></li>
+      <li><a href="#">Exploring Data</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="clustering.html">Clustering</a></li>
+      <li><a href="infographics.html">Infographics</a></li>
+      <li><a href="conclusion.html">Conclusion</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+    </ul>
+  </div>
+  <!-- Begin Post -->
+  <div class="post">
+    <div class="mainheading">
+    </div>
+    <div class="article-post">
+      <h2>News IO Data</h2>
+      <h5>News Source Distribution</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/news_src_dist.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure1: News Source Distribution</figcaption>
+      <p>Reuters covered 55% of a total of 6496 "Hong Kong" related news since January 2019.</p>
+      <h5>Protest Keyword Over Time</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/news_prot_time.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure2: Protest Keyword in News</figcaption>
+      <p>From above timeseries, there is an exploding amount of news since June 2019 and fading away on Dec 2019.
+        This period matches with the timeline of the protest, which aggravated since June. However, this trend
+        does not seem to capture the first wave of the sit-in protest, which took place since March.
+      </p>
+      <h5>News Word Cloud</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/news_wcloud.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure3: Wordcloud of News</figcaption>
+      <p>Some keywords jump out from the word cloud like "China", "US", "Protest", "National Security". Their
+        large pressence, combining with the previous chart, validates that 2019's exploding new coverage is due
+        to the protest. This gives a good starting point. Clustering section will show further analysis on the
+        shift of news coverage.
+      </p>
+      <br>
+      <h2>Reddit Data</h2>
+      <h5>Quantitative Values Summary</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/reddit_summary.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure4: Reddit Data Summary</figcaption>
+      <p>Since Jan 2019, there are 6170 submissions from reddit about Hong Kong. Among them, 17% contain the
+        keyword "protest". It is also worthy to note that quantitative values have large range, like the score of
+        an individual submission ranges from 2 to 69k.
+      </p>
+      <h5>Protest Keyword Overtime</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/reddit_prot_time.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure5: Protest Keyword in Reddit</figcaption>
+      <p>The keyword exploding of Reddit matches with that from News data, except Reddit data seems to be more
+        extreme and ephemeral.</p>
+      <h5>Subreddit Distribution</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/reddit_subreddit.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure6: Subreddit Distribution</figcaption>
+      <p>This pie chart shows the main subreddits with Hong Kong related submission. Subreddits
+        with very few submissions are hidden from the chart.</p>
+      <h5>Reddit Word Cloud</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/reddit_wcloud.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure7: Reddit Wordclooud</figcaption>
+      <p>Reddit's word cloud does not match with the one from news data. The highlighted keywords suggest a
+        more diverse of interets from reditters.</p>
+      <br>
+      <h2>Hong Kong IPO Listing Data</h2>
+      <h5>Quantitative Values Summary</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/hkipo_summary.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure8: HK IPO Data Summary</figcaption>
+      <p>There are 448 IPO listings on Hong Kong Stock Exchange since June 2018.</p>
+      <h5>IPO Market Value Over Time</h5>
+      <img class="featured-image img-fluid" src="../assets/eda/hkipo_overtime.png" alt="" width="50%" height="50%">
+      <figcaption style="text-align: center;">Figure9: HK IPO Volume Over Time</figcaption>
+      <p>IPO transactions is more active before 2018, but it remained strong during protest period Jun - Dec 2019.</p>
+      <br>
+      <h2>Economic Data</h2>
+      <h5>Transport</h5>
+      <object type="text/html" data="../assets/eda/transport_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure10: Transport EDA</figcaption>
+      <h5>Employment</h5>
+      <object type="text/html" data="../assets/eda/employment_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure11: Employment EDA</figcaption>
+      <h5>Employment Percent</h5>
+      <object type="text/html" data="../assets/eda/employment_percent_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure12: Employment Percentage</figcaption>
+      <h5>Tourism</h5>
+      <object type="text/html" data="../assets/eda/tourism_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure13: Tourism EDA</figcaption>
+      <h5>Tourism Percent</h5>
+      <object type="text/html" data="../assets/eda/tourism_percent_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure14: Tourism Percentage</figcaption>
+      <h5>Retail Sales</h5>
+      <object type="text/html" data="../assets/eda/retail_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure15: Retail Sales EDA</figcaption>
+      <h5>Retail Sales Percent</h5>
+      <object type="text/html" data="../assets/eda/retail_percent_eda.html" width="100%" , height="400px"></object>
+      <figcaption style="text-align: center;">Figure16: Retail Sales Percentage</figcaption>
+      <br>
+      <h6>Data exploring code is stored <a href="../assets/eda/Exploring Data code.html" target="_">here.</a></h6>
+      <br>
+    </div>
+  </div>
+  <!-- End Post -->
+</body>
+
+</html>

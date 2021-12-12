@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500");
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.sidebar {
+  position: fixed;
+  left: 0px;
+  width: 220px;
+  height: 100%;
+  background: #042331;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
+}
+.post {
+  position: absolute;
+  left: 250px;
+  width: 70%;
+}
+
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.4s;
+}
+ul li:hover a {
+  padding-left: 50px;
+}
+.sidebar ul a i {
+  margin-right: 16px;
+}
+label #btn,
+label #cancel {
+  position: absolute;
+  background: #042331;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+section {
+  background: url(bg.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all 0.5s;
+}
+/* This is for data gaterhing page*/
+.acc_container {
+  margin: 0 0 5px;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.2em;
+  clear: both;
+  color: #000;
+}
+.acc_container .block {
+  padding-bottom: 20px;
+  padding-left: 40px;
+  color: #000;
+  visibility: hidden;
+}
+
+.acc_trigger {
+  background: #042331;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 65px;
+  padding-left: 40px;
+  height: 100%;
+}
+
+h2.acc_trigger a {
+  color: white;
+  display: block;
+  font-family: "Roboto";
+  font-size: 35px;
+}
+
+.clean_browse {
+  display: flex;
+  flex-direction: column;
+}
+
+.clean_section {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0px 30px;
+  border-bottom: 1px solid rgb(218, 220, 224);
+}
+
+.clean_title {
+  line-height: 3em;
+  padding-top: 40px;
+  text-decoration: none;
+}
+
+.clean_title {
+  display: flex;
+  -moz-box-pack: start;
+  justify-content: flex-start;
+  -moz-box-align: center;
+  align-items: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 40px;
+  max-height: 24px;
+}
+
+.clean_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px 24px;
+  overflow-y: hidden;
+  /*    height: 1000px;
+*/
+}
+
+.clean_holder {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid rgb(218, 220, 224);
+  min-width: 200px;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.clean_desp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -moz-box-orient: vertical;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+.clean_card {
+  margin-top: 8px;
+}
+
+.clean_holder a:hover {
+  text-decoration: none;
+  box-shadow: 40px -12px teal;
+}
+
+.clean_img {
+  width: 100%;
+  height: 108px;
+  object-fit: cover;
+}
+
+figcaption {
+  display: block;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 1.5rem;
+}

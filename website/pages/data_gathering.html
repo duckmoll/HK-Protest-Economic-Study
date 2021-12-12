@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Personal Portfolio Website</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+    rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/mediumish.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      //Hide (Collapse) the toggle containers on load
+      $(".acc_container").hide();
+      //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+      $("h2.acc_trigger").click(function () {
+        $(".acc_container").css({ "visibility": "visible" });
+        $(".acc_container .block").css({ "visibility": "visible" });
+        $(this).toggleClass("active").next().slideToggle("slow");
+
+        return false; //Prevent the browser jump to the link anchor
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="sidebar">
+    <header>Data Gathering</header>
+    <ul>
+      <li><a href="../index.html">Introduction</a></li>
+      <li><a href="#">Data Gathering</a></li>
+      <li><a href="data_cleaning.html">Data Cleaning</a></li>
+      <li><a href="exploring_data.html">Exploring Data</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="clustering.html">Clustering</a></li>
+      <li><a href="infographics.html">Infographics</a></li>
+      <li><a href="conclusion.html">Conclusion</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+    </ul>
+  </div>
+  <!-- Begin Post -->
+  <div class="post">
+    <div class="mainheading"> </div>
+    <!-- Begin Post Content -->
+    <div class="article-post">
+      <div id="main">
+        <h2 class="acc_trigger"><a href="#">Economic Data</a></h2>
+        <div class="acc_container">
+          <div class="block">
+            <h4 class="data_title">Transport Data</h4>
+            <a class="data_link"
+              href="https://www.td.gov.hk/en/transport_in_hong_kong/transport_figures/monthly_traffic_and_transport_digest/index.html">https://www.td.gov.hk/en/transport_in_hong_kong/transport_figures/monthly_traffic_and_transport_digest/index.html</a>
+            <p>Transport Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/transport_data.png" alt="">
+            <h4 class="data_title">Number of Employed Person by Industry And Occupation</h4>
+            <a class="data_link"
+              href="https://www.censtatd.gov.hk/en/data/stat_report/product/D5250003/att/D5250003B2021QQ02B.xlsx">https://www.censtatd.gov.hk/en/data/stat_report/product/D5250003/att/D5250003B2021QQ02B.xlsx</a>
+            <p>Employement Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/occupation_data.png" alt="">
+            <h4 class="data_title">Retail Sales by Type of Retail Outlet</h4>
+            <a class="data_link"
+              href="https://www.censtatd.gov.hk/en/data/stat_report/product/D5600089/att/D5600089B2021MM07B.xlsx">https://www.censtatd.gov.hk/en/data/stat_report/product/D5600089/att/D5600089B2021MM07B.xlsx</a>
+            <p>Retail Sales Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/retail_data.png" alt="">
+            <h4 class="data_title">Tourism</h4>
+            <a class="data_link"
+              href="https://www.discoverhongkong.com/eng/hktb/newsroom/tourism-statistics.html/">https://www.discoverhongkong.com/eng/hktb/newsroom/tourism-statistics.html</a>
+            <p>Tourism Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/travel_data.png" alt="">
+          </div><!-- end .block -->
+        </div><!-- end .acc_container -->
+
+        <h2 class="acc_trigger"><a href="#">News</a></h2>
+        <div class="acc_container">
+          <div class="block">
+            <p>For news, because this project needs historical financial news content back in 2019, it uses the
+              platform<a href='https://newsfilter.io/'> News IO</a> and its REST API</p>
+            <script src="https://gist.github.com/duckmoll/e486177869a2c9b4db13b52001adb574.js"></script>
+            <p>Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/newsio.png" alt="">
+          </div><!-- end .block -->
+        </div><!-- end .acc_container -->
+
+        <h2 class="acc_trigger"><a href="#">Financial Data</a></h2>
+        <div class="acc_container">
+          <div class="block">
+            <p><a href='https://www.kgieworld.com/HKStocks/Markets/HistoricalIPO.aspx?sc_lang=en'>Hong Kong IPO Listing
+                Data</a> and <a href='https://ipo.pedata.cn/list_1_2_0_0_0.html'>China-Hong Kong IPO Listing Data</a>
+            </p>
+            <p>Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/hk_ipo.png" alt="">
+          </div><!-- end .block -->
+          <div class="block">
+            <p><a href="https://en.wikipedia.org/wiki/Hang_Seng_Index">Hang Seng Stock Returns</a></p>
+            <script src="https://gist.github.com/duckmoll/ec3a73eb4e669e27ee425872bf6d7d52.js"></script>
+            <p>Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/stock_snippet.png" alt="">
+          </div><!-- end .block -->
+        </div><!-- end .acc_container -->
+
+        <h2 class="acc_trigger"><a href="#">Online Attention</a></h2>
+        <div class="acc_container">
+          <div class="block">
+            <p>For attention, data is gathered using APIs from reddit, wikipedia and google trends.</p>
+            <p><a href='https://www.reddit.com/'>Reddit</a></p>
+            <script src="https://gist.github.com/duckmoll/ed8c7cfb7ed0d8ca5b52c8322adb324d.js"></script>
+            <p>Reddit Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/reddit_api.png" alt="">
+
+            <p><a href='en.wikipedia.org'>Wikipedia</a></p>
+            <script src="https://gist.github.com/duckmoll/4ea33d0e570ad297e88f43823e19b025.js"></script>
+            <p>Wiki Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/wiki_api.png" alt="">
+
+            <p><a href='https://trends.google.com/trends/?geo=US'>Google Trends</a></p>
+            <script src="https://gist.github.com/duckmoll/5b47fdee2020946928fecd836adb3d93.js"></script>
+            <p>Google Trends Data Sample</p>
+            <img class="featured-image img-fluid" src="../assets/google_api.png" alt="">
+          </div><!-- end .block -->
+        </div><!-- end .acc_container -->
+
+        <h2 class="acc_trigger"><a href="#">References</a></h2>
+        <div class="acc_container">
+          <div class="block">
+            <iframe width="100%" height="460"
+              src="https://docs.google.com/document/d/e/2PACX-1vTEYwz-luFdDMg2hBJfSpTJ5vxjQLY2vO31FRmbVlcsyzSFh-CWOzGGk-LWfM49Uw/pub?embedded=true"></iframe>
+          </div><!-- end .block -->
+        </div><!-- end .acc_container -->
+      </div><!-- end #main -->
+    </div>
+    <!-- End Post Content -->
+  </div>
+  <!-- End Post -->
+</body>
+
+</html>
